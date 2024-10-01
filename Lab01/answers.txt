@@ -1,0 +1,17 @@
+Question 1: What happens if users choose “Cancel”?
+
+ - If users choose "Cancel", the output will be: "You've chosen: NO"
+
+Question 2: How to customize the options to users, e.g. only two options: “Yes” and “No”, OR “I do” and “I don’t”
+
+ - To customize the options to users we can use JOptionPane.showOptionDialog
+
+ - Object[] options = {"I do", "I don't"};
+
+ - int option = JOptionPane.showOptionDialog(null,
+    "Do you want to change to the first class ticket" // Message
+    JOptionPane.YES_NO_OPTION, // Kiểu tùy chọn câu trả lời (2 lựa chọn)
+    JOptionPane.QUESTION_MESSAGE, // Kiểu thông điệp (câu hỏi)
+    null,
+    options, // Mảng tùy chọn đã khai báo ở trên
+    options[0]); // Giá trị mặc định ("I do")
