@@ -51,5 +51,22 @@ public class DigitalVideoDisc {
         return cost;
     }
 
+    public void displayDetails() {
 
+        if (this.getTitle() != null) {
+            System.out.println("Title: " + this.getTitle());
+        }
+        if (this.getCategory() != null) {
+            System.out.println("Category: " + this.getCategory());
+        }
+        if (this.getDirector() != null) {
+            System.out.println("Director: " + this.getDirector());
+        }
+        if (this.getLength() > 0) {
+            System.out.println("Length: " + this.getLength());
+        }
+        if (this.getCost() > 0) {
+            System.out.println("Cost: " + this.getCost());
+        }
+    }  
 }
