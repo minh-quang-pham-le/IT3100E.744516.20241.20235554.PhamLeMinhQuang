@@ -35,7 +35,8 @@ public class Cart {
     public float totalCost() {
         float total = 0;
         for (DigitalVideoDisc item : itemsOrdered) {
-            total += item.getCost();
+            if (item == null) return total;
+            else total += item.getCost();
         }
         return total;
     }
