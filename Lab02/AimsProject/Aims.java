@@ -18,7 +18,7 @@ public class Aims {
         anOrder.removeDigitalVideoDisc(dvd3); // Test the remove method
 
         //print total cost of the items in the cart
-        System.out.println("Total Cost is: ");
+        System.out.print("Total Cost is: ");
         System.out.println(anOrder.totalCost());
     }
 }
