@@ -8,7 +8,7 @@ public class Cart {
         if (qtyOrdered < MAX_NUMBERS_ORDERED) {
             itemsOrdered[qtyOrdered] = disc;
             qtyOrdered++;
-            System.out.println("The disc has been added.");
+            System.out.println("The disc " + disc.getTitle() + " has been added.");
             return true;
         }
         else {
