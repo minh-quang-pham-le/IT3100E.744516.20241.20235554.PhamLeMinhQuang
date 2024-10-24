@@ -20,12 +20,13 @@ public class Cart {
     public boolean removeDigitalVideoDisc(DigitalVideoDisc disc) {
         for (int i = 0; i < qtyOrdered; i++) {
             if (itemsOrdered[i].getTitle().equals(disc.getTitle())) {
-            for (int j = i + 1; j < qtyOrdered; j++) {
-                itemsOrdered[j-1] = itemsOrdered[j];
-            }
-            qtyOrdered--;
-            System.out.println("The disc " + disc.getTitle() + " has been removed.");
-            return true;
+                for (int j = i + 1; j < qtyOrdered; j++) {
+                    itemsOrdered[j-1] = itemsOrdered[j];
+                }
+                itemsOrdered[qtyOrdered-1] = null; 
+                qtyOrdered--;
+                System.out.println("The disc " + disc.getTitle() + " has been removed.");
+                return true;
             }
         }
         System.out.println("The disc " + disc.getTitle() + " is not in the cart.");
