@@ -1,3 +1,6 @@
+package hust.soict.dsai.aims.cart;
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+
 public class Cart {
 
     public static final int MAX_NUMBERS_ORDERED = 20;
@@ -15,6 +18,15 @@ public class Cart {
             System.out.println("The cart is almost full.");
             return false;
         }
+    }
+
+    public void addDigitalVideoDisc(DigitalVideoDisc [] dvdList) {
+        for (DigitalVideoDisc dvd : dvdList) addDigitalVideoDisc(dvd);
+    }
+
+    public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+        addDigitalVideoDisc(dvd1);
+        addDigitalVideoDisc(dvd2);
     }
 
     public boolean removeDigitalVideoDisc(DigitalVideoDisc disc) {
