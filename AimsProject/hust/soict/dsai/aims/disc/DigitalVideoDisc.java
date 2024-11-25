@@ -70,5 +70,9 @@ public class DigitalVideoDisc {
         if (this.getCost() > 0) {
             System.out.println("Cost: " + this.getCost());
         }
-    }  
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }
