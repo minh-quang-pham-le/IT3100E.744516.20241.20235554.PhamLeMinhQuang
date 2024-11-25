@@ -1,3 +1,5 @@
+package hust.soict.dsai.aims.disc.DigitalVideoDisc;
+
 public class DigitalVideoDisc {
     
     private String title;
@@ -5,6 +7,8 @@ public class DigitalVideoDisc {
     private String director;
     private int length;
     private float cost;
+    private int id;
+    private static int nbDigitalVideoDiscs = 0;
 
     public DigitalVideoDisc(String title) {
         this.title = title;
@@ -14,6 +18,9 @@ public class DigitalVideoDisc {
         this(title);
         this.category = category;
         this.cost = cost;
+
+        nbDigitalVideoDiscs++;
+        this.id = nbDigitalVideoDiscs;
     }
 
     public DigitalVideoDisc(String title, String category, String director, float cost) {
@@ -21,6 +28,9 @@ public class DigitalVideoDisc {
         this.category = category;
         this.director = director;
         this.cost = cost;
+
+        nbDigitalVideoDiscs++;
+        this.id = nbDigitalVideoDiscs;
     }
 
     public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
@@ -29,6 +39,9 @@ public class DigitalVideoDisc {
         this.director = director;
         this.length = length;
         this.cost = cost;
+
+        nbDigitalVideoDiscs++;
+        this.id = nbDigitalVideoDiscs;
     }
 
     public String getTitle() {
@@ -51,6 +64,10 @@ public class DigitalVideoDisc {
         return cost;
     }
 
+    public int getID() {
+        return id;
+    }
+
     public void displayDetails() {
 
         if (this.getTitle() != null) {
@@ -68,5 +85,24 @@ public class DigitalVideoDisc {
         if (this.getCost() > 0) {
             System.out.println("Cost: " + this.getCost());
         }
-    }  
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public boolean isMatch(String title) {
+        String[] keywords = title.toLowerCase().split(" ");
+        String discTitle = this.getTitle().toLowerCase();
+        for (String keyword : keywords) {
+            if (!discTitle.contains(keyword)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public String toString() {
+        return " DVD - " + title + " - " + category + " - " + director + " - " + length + ": " + cost + " $";
+    }
 }
