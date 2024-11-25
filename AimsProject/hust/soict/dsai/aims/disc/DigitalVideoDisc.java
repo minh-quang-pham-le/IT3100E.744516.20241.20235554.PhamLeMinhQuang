@@ -64,6 +64,10 @@ public class DigitalVideoDisc {
         return cost;
     }
 
+    public int getID() {
+        return id;
+    }
+
     public void displayDetails() {
 
         if (this.getTitle() != null) {
@@ -85,5 +89,20 @@ public class DigitalVideoDisc {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public boolean isMatch(String title) {
+        String[] keywords = title.toLowerCase().split(" ");
+        String discTitle = this.getTitle().toLowerCase();
+        for (String keyword : keywords) {
+            if (!discTitle.contains(keyword)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public String toString() {
+        return " DVD - " + title + " - " + category + " - " + director + " - " + length + ": " + cost + " $";
     }
 }
