@@ -16,4 +16,20 @@ public class Store {
         }
         else System.out.println("Item not found in the store");
     }
+
+    public void displayItems() {
+        System.out.println("Items in store:");
+        for (int i = 0; i < itemsInStore.size(); i++) {
+            System.out.println((i+1) + ". " + itemsInStore.get(i).getTitle());
+        }
+    }
+
+    public Media searchMedia(String title) {
+		for (Media media: this.itemsInStore) {
+			if (media.getTitle().toLowerCase().equals(title.toLowerCase())) {
+				return media;
+			}
+		}
+		return null;
+	}
 }

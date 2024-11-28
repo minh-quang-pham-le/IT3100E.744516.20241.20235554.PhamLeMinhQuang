@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Book extends Media {
+    private int contentLength;
     private List<String> authors = new ArrayList<>();
 
     public Book(String title) {
@@ -17,9 +18,18 @@ public class Book extends Media {
         super(title, category, cost);
     }
 
+    public Book(String title, String category, int contentLength, float cost) {
+		super(title, category, cost);
+		this.contentLength = contentLength;
+	}
+
     public List<String> getAuthors() {
         return authors;
     }
+    
+    public void setAuthors(List<String> authors) {
+		this.authors = authors;
+	}
     
     public void addAuthor(String authorName) {
         if (!authors.contains(authorName)) {
