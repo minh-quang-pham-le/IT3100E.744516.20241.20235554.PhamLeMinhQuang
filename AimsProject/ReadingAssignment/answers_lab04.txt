@@ -1,0 +1,56 @@
+1.
+    Question: What class should implement the Comparable interface?
+    Answer: The Comparable interface should be implemented by the Media class. 
+    This is because Media is the base class representing a general item, and by implementing Comparable, 
+    you can define a "default" natural ordering for all Media objects.
+
+2. 
+    Question: How should you implement the compareTo() method to reflect the ordering we want?
+    Answer: To reflect an ordering in the compareTo() method of Media, you need to define the natural ordering (e.g., by title first, then cost).
+    Here's how the compareTo method might look:
+
+    public int compareTo(Media other) {
+        // First compare by title
+        int titleComparison = this.title.compareTo(other.title);
+        if (titleComparison != 0) {
+            return titleComparison;
+        }
+        // If titles are equal, compare by cost
+        return Double.compare(this.cost, other.cost);
+    }
+
+    This implementation ensures that the natural ordering for Media objects is by title, then cost.
+
+3.
+    Question: Can we have two ordering rules (by title then cost, and by cost then title) if we use the Comparable interface approach?
+    Answer: No, you cannot have multiple ordering rules if you rely solely on the Comparable interface. 
+    The compareTo method defines a single "natural ordering" for the class.
+
+4. 
+    Question: Suppose DVDs have a different ordering rule (by title, then decreasing length, then cost).
+    How would you modify your code to allow this?
+    Answer: If a specific subclass DVDs needs a custom ordering, the subclass should override the compareTo method. 
+    Here's how to implement compareTo method
+
+    public int compareTo(Media other) {
+        if (other instanceof DVD) {
+            DVD otherDVD = (DVD) other;
+
+            // Compare by title
+            int titleComparison = this.getTitle().compareTo(otherDVD.getTitle());
+            if (titleComparison != 0) {
+                return titleComparison;
+            }
+
+            // Compare by decreasing length (reverse order)
+            int lengthComparison = Integer.compare(otherDVD.getLength(), this.getLength());
+            if (lengthComparison != 0) {
+                return lengthComparison;
+            }
+
+            // Compare by cost
+            return Double.compare(this.getCost(), otherDVD.getCost());
+        }
+    }
+
+    Now, DVDs will have a custom ordering rule: title, then decreasing length, then cost.
