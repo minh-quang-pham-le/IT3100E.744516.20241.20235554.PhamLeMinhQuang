@@ -47,4 +47,18 @@ public abstract class Media {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Media media = (Media) obj;
+        return title.equals(media.title);
+    }
 }
