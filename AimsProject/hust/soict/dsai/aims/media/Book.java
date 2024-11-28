@@ -36,5 +36,10 @@ public class Book extends Media {
         }
         else System.out.println("Author: " + authorName + " is not associated with the book."); 
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Author: " + getAuthors();
+    }
     
 }

@@ -61,4 +61,8 @@ public abstract class Media {
         Media media = (Media) obj;
         return title.equals(media.title);
     }
+
+    public String toString() {
+        return "ID: " + id + ", Title: " + title + ", Category: " + category + ", Cost: " + cost;
+    }
 }
