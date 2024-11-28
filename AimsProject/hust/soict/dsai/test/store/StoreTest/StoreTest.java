@@ -11,10 +11,10 @@ public class StoreTest {
         DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
         
-        myStore.addDVD(dvd1);
-        myStore.addDVD(dvd2);
-        myStore.addDVD(dvd3);
-        myStore.removeDVD(dvd2);
+        myStore.addMedia(dvd1);
+        myStore.addMedia(dvd2);
+        myStore.addMedia(dvd3);
+        myStore.removeMedia(dvd2);
 
     }
 }
