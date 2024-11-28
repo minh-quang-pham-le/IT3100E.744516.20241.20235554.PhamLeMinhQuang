@@ -1,55 +1,26 @@
-package hust.soict.dsai.aims.disc.DigitalVideoDisc;
+package hust.soict.dsai.aims.media;
 
-public class DigitalVideoDisc {
-    
-    private String title;
-    private String category;
+public class DigitalVideoDisc extends Media {
     private String director;
     private int length;
-    private float cost;
-    private int id;
-    private static int nbDigitalVideoDiscs = 0;
 
     public DigitalVideoDisc(String title) {
-        this.title = title;
+        super(title);
     }
 
     public DigitalVideoDisc(String title, String category, float cost) {
-        this(title);
-        this.category = category;
-        this.cost = cost;
-
-        nbDigitalVideoDiscs++;
-        this.id = nbDigitalVideoDiscs;
+        super(title, category, cost);
     }
 
     public DigitalVideoDisc(String title, String category, String director, float cost) {
-        this(title);
-        this.category = category;
+        super(title, category, cost);
         this.director = director;
-        this.cost = cost;
-
-        nbDigitalVideoDiscs++;
-        this.id = nbDigitalVideoDiscs;
     }
 
     public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-        this(title);
-        this.category = category;
+        super(title, category, cost);
         this.director = director;
         this.length = length;
-        this.cost = cost;
-
-        nbDigitalVideoDiscs++;
-        this.id = nbDigitalVideoDiscs;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getCategory() {
-        return category;
     }
 
     public String getDirector() {
@@ -58,14 +29,6 @@ public class DigitalVideoDisc {
 
     public int getLength() {
         return length;
-    }
-
-    public float getCost() {
-        return cost;
-    }
-
-    public int getID() {
-        return id;
     }
 
     public void displayDetails() {
@@ -87,9 +50,6 @@ public class DigitalVideoDisc {
         }
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public boolean isMatch(String title) {
         String[] keywords = title.toLowerCase().split(" ");
@@ -103,6 +63,6 @@ public class DigitalVideoDisc {
     }
     
     public String toString() {
-        return " DVD - " + title + " - " + category + " - " + director + " - " + length + ": " + cost + " $";
+        return " DVD - " + getTitle() + " - " + getCategory() + " - " + director + " - " + length + ": " + getCost() + " $";
     }
 }
